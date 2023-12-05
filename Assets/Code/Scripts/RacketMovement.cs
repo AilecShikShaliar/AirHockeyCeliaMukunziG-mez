@@ -25,7 +25,5 @@ public class RacketMovement : MonoBehaviour
         float verticalMovement = Input.GetAxis(axe);
         //Va al componente Rigidbody y le aplicamos una velocidad, que es un Vector2 donde en este caso no lo movemos en X solo en Y
         rb.velocity = new Vector2(0f, verticalMovement) * racketSpeed; //Multiplicamos por la velocidad de movimiento => 1*25 ó -1*25
-
-        
     }
 }
