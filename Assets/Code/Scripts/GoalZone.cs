@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; //Librería para poder acceder a los TextMeshPro
+using TMPro; //Librerï¿½a para poder acceder a los TextMeshPro
 
 public class GoalZone : MonoBehaviour
 {
     //Referencia para acceder al marcador de puntos
     public TextMeshProUGUI scoreText;
-    //Variable para guardar los puntos marcados en esa portería
+    //Variable para guardar los puntos marcados en esa porterï¿½a
     public int score;
 
     //Referencia al GameManager
@@ -16,39 +16,39 @@ public class GoalZone : MonoBehaviour
     //Antes de que empiece el juego
     private void Awake()
     {
-        //Ponemos la puntuación en 0
+        //Ponemos la puntuaciï¿½n en 0
         score = 0;
-        //Cambiamos el texto de la puntuación al valor que tenga en ese momento el score
+        //Cambiamos el texto de la puntuaciï¿½n al valor que tenga en ese momento el score
         scoreText.text = score.ToString();
 
         //Para transformar un int en un string hay 3 maneras
-        //scoreText.text = score + ""; le sumo un string vacío a ese int, luego ya será todo un string
+        //scoreText.text = score + ""; le sumo un string vacï¿½o a ese int, luego ya serï¿½ todo un string
         //scoreText.text = score.ToString(); transformo(cast) del int en un string
-        //scoreText.text = "Score: " + score; a un string le ponemos después un int, con lo cuál ya todo es string
+        //scoreText.text = "Score: " + score; a un string le ponemos despuï¿½s un int, con lo cuï¿½l ya todo es string
     }
 
-    //Método para detectar cuando algo ha entrado en el trigger(zona de gol)
+    //Mï¿½todo para detectar cuando algo ha entrado en el trigger(zona de gol)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Solo aquellos GameObjects etiquetados como Disco, que hayan entrado en el trigger
         if (collision.CompareTag("Disco"))
         {
-            //Sumo 1 a la puntuación
+            //Sumo 1 a la puntuaciï¿½n
             score++;
-            //Si la puntuación es mayor de 9
+            //Si la puntuaciï¿½n es mayor de 9
             if (score > 9)
             {
-                //Ejecuto el método que hace que se pase a otra ronda
+                //Ejecuto el mï¿½todo que hace que se pase a otra ronda
                 gMReference.GoalScored();
-                //Ejecuto el método que termina esta partida
+                //Ejecuto el mï¿½todo que termina esta partida
                 gMReference.WinGame();
             }
             //Si no
             else
             {
-                //Cambiamos el texto de la puntuación al valor que tenga en ese momento el score
+                //Cambiamos el texto de la puntuaciï¿½n al valor que tenga en ese momento el score
                 scoreText.text = score.ToString();
-                //Ejecuto el método que hace que se pase a otra ronda
+                //Ejecuto el mï¿½todo que hace que se pase a otra ronda
                 gMReference.GoalScored();
             }
         }

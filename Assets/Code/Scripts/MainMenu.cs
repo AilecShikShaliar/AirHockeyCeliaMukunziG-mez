@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //Librería que sirve para cambiar entre escenas
+using UnityEngine.SceneManagement; //Librerï¿½a que sirve para cambiar entre escenas
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    //Método que usamos desde el botón de Play para ir a la escena de juego
+    //Mï¿½todo que usamos desde el botï¿½n de Play para ir a la escena de juego
     public void ChangeScene()
     {
         //Carga la escena con ese nombre

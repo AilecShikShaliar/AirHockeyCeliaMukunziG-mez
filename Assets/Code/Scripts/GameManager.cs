@@ -1,69 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //Librería para cambiar entre escenas
-using TMPro; //Librería para poder usar los TextMeshPro
+using UnityEngine.SceneManagement; //Librerï¿½a para cambiar entre escenas
+using TMPro; //Librerï¿½a para poder usar los TextMeshPro
 
 public class GameManager : MonoBehaviour
 {
-    //Referencia para guardar la dirección del disco
+    //Referencia para guardar la direcciï¿½n del disco
     Vector2 direction;
     //Referencia al disco
     public GameObject disk;
     //Referencia para las palas
-    public GameObject playerLeft, playerRight;
+    public GameObject playerLeft, playerRight, playerUp, playerDown;
     //Referencia para el texto del ganador
     public GameObject panelWin;
 
     //Referencias a las porterias
-    public GameObject goalLeft, goalRight;
+    public GameObject goalLeft, goalRight, goalUp, goalDown;
     //Referencia para acceder al cartel de ganar
     public TextMeshProUGUI winText;
 
-    //Método para hacer lo que ocurre al marcar un punto
+    //Mï¿½todo para hacer lo que ocurre al marcar un punto
     public void GoalScored()
     {
-        //Ponemos el disco al marcar un gol en la posición de origen
+        //Ponemos el disco al marcar un gol en la posiciï¿½n de origen
         disk.transform.position = Vector2.zero; //Vector2.zero <-> new Vector2(0,0)
         //Ponemos a los jugadores en sus posiciones de origen
         playerLeft.transform.position = new Vector2(-6.75f, 0f);
         playerRight.transform.position = new Vector2(6.75f, 0f);
+        playerUp.transform.position = new Vector2 (0f, 3.99f);
+        playerDown.transform.position = new Vector2 (0f, -3.99f);
 
-        //Aquí guardamos la velocidad en X que llevaba el disco e invertimos su signo
+        //Aquï¿½ guardamos la velocidad en X que llevaba el disco e invertimos su signo
         direction = new Vector2(-disk.GetComponent<Rigidbody2D>().velocity.x, 0f);
 
         //Paramos el disco
         disk.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        //Usando Invoke esperamos X segundos antes de llamara un método
-        Invoke("LaunchDisk", 2.0f); //Le decimos el método que quiero invocar y el tiempo que tiene que pasar en segundos para que eso suceda
+        //Usando Invoke esperamos X segundos antes de llamara un mï¿½todo
+        Invoke("LaunchDisk", 2.0f); //Le decimos el mï¿½todo que quiero invocar y el tiempo que tiene que pasar en segundos para que eso suceda
     }
 
-    //Método para hacer que el disco se lance
+    //Mï¿½todo para hacer que el disco se lance
     void LaunchDisk()
     {
-        //Aplicamos esa nueva dirección en el disco
+        //Aplicamos esa nueva direcciï¿½n en el disco
         disk.GetComponent<Rigidbody2D>().velocity = direction;
     }
 
-    //Método para resetear el juego cuando uno gana
+    //Mï¿½todo para resetear el juego cuando uno gana
     public void WinGame()
     {
         //SetActive sirve para activar o desactivar objetos
         panelWin.SetActive(true);
-        //Si la puntuación que tenemos guardada en esa portería es mayor de 9
+      
         if (goalLeft.GetComponent<GoalZone>().score > 9)
-            winText.text = "El Jugador Derecha ha ganado!!";
+            winText.text = "El Jugador Derecha ha ganado";
         else if(goalRight.GetComponent<GoalZone>().score > 9)
-            winText.text = "El Jugador Izquierda ha ganado!!";
-        //Esperamos 2 segundos antes de ir a la pantalla del título
+
+            winText.text = "El Jugador Izquierda ha ganado";
+        else if (goalUp.GetComponent<GoalZone>().score > 9)
+             winText.text = "El jugador Arriba ha ganado";
+
+        else if (goalDown.GetComponent<GoalZone>().score > 9)
+             winText.text = "El jugador Arriba ha ganado";
+     
         Invoke("GoMenu", 2f);
     }
 
-    //Método para ir a la pantalla de título
+    //Mï¿½todo para ir a la pantalla de tï¿½tulo
     public void GoMenu()
     {
-        //Vamos a la escena de título
+        //Vamos a la escena de tï¿½tulo
         SceneManager.LoadScene("MainMenu");
     }
 }
