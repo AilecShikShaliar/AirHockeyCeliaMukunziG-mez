@@ -11,6 +11,8 @@ public class RacketMovement : MonoBehaviour
     //Esto es una referencia al RigidBody del jugador que nos permite cambiar su velocidad
     public Rigidbody2D rb;
 
+    public bool isHorizontal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,21 @@ public class RacketMovement : MonoBehaviour
     // Ponemos FixedUpdate para que la longitud de cada frame en segundos mida lo mismo, y as� el movimiento sea suavizado
     void FixedUpdate()
     {
-        //Obtenemos el valor del eje asignado. Que me devuelve 1 si pulso arriba, -1 si pulso abajo, 0 sino pulso
-        float verticalMovement = Input.GetAxis(axe);
-        float horizontalMovement = Input.GetAxis(axe);
-        //Va al componente Rigidbody y le aplicamos una velocidad, que es un Vector2 donde en este caso no lo movemos en X solo en Y
-        rb.velocity = new Vector2(0f, verticalMovement) * racketSpeed; //Multiplicamos por la velocidad de movimiento => 1*25 � -1*25
-        rb.velocity = new Vector2(horizontalMovement, 0f ) * racketSpeed;
+        if (isHorizontal)
+        {
+            float horizontalMovement = Input.GetAxis(axe);
+            rb.velocity = new Vector2(horizontalMovement, 0f ) * racketSpeed;
+
+
+        }
+        else
+        {
+          float verticalMovement = Input.GetAxis(axe);
+          rb.velocity = new Vector2(0f, verticalMovement) * racketSpeed;
+
+        }
+
+       
        
     }
 }

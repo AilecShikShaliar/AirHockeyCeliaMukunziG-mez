@@ -412,6 +412,7 @@ MonoBehaviour:
   racketSpeed: 25
   axe: Vertical
   rb: {fileID: 336680341}
+  isHorizontal: 0
 --- !u!50 &336680341
 Rigidbody2D:
   serializedVersion: 4
@@ -763,7 +764,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 5
+  m_Constraints: 6
 --- !u!114 &413830953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +780,7 @@ MonoBehaviour:
   racketSpeed: 25
   axe: Horizontal2
   rb: {fileID: 413830952}
+  isHorizontal: 1
 --- !u!212 &413830954
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -821,7 +823,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac70bb22ea140784da117bcb1ff4e0e8, type: 3}
-  m_Color: {r: 0.7996887, g: 0.5613208, b: 1, a: 1}
+  m_Color: {r: 0.5647707, g: 0.38470095, b: 0.8584906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -937,7 +939,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 5
+  m_Constraints: 6
 --- !u!114 &488118726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,6 +955,7 @@ MonoBehaviour:
   racketSpeed: 25
   axe: Horizontal
   rb: {fileID: 488118725}
+  isHorizontal: 1
 --- !u!212 &488118727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -995,7 +998,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1a3e639ce9360444aa901bc56f2bccfa, type: 3}
-  m_Color: {r: 0.6084906, g: 0.77591264, b: 1, a: 1}
+  m_Color: {r: 0.546658, g: 0.6509434, b: 0.36538804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1111,7 +1114,7 @@ GameObject:
   - component: {fileID: 572938533}
   - component: {fileID: 572938532}
   m_Layer: 0
-  m_Name: PointsImage
+  m_Name: PointsImageHorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1373,7 +1376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.871521, y: -4.376587}
+  m_AnchoredPosition: {x: -7.871582, y: -4.376587}
   m_SizeDelta: {x: -1175.126, y: -904.5743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &792567143
@@ -2129,7 +2132,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 13dfeb33878aaa94f8460fcdf16fd5b1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.504717, b: 0.504717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2513,6 +2516,7 @@ MonoBehaviour:
   racketSpeed: 25
   axe: Vertical2
   rb: {fileID: 1645977801}
+  isHorizontal: 0
 --- !u!61 &1645977803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2864,7 +2868,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 72322b75a1568e041b7cb5882b7a06da, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.26143643, g: 0.266892, b: 0.4433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
